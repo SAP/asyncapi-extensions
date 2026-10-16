@@ -1,6 +1,6 @@
-# CDS CSN to AsyncAPI specification for SAP ecosystem Mapping - Architecture Decision Records
+# CDS CSN to SAP Extensions for AsyncAPI Specification v2.0 Mapping - Architecture Decision Records
 
-This document shall record all important challenges, decisions and consequences regarding the generation of [AsyncAPI specification for SAP ecosystem](https://github.com/SAP/asyncapi-specification) documents from [CDS](https://pages.github.tools.sap/cap/docs/cds/)/[CSN](https://pages.github.tools.sap/cap/docs/cds/csn) models.
+This document shall record all important challenges, decisions and consequences regarding the generation of [SAP Extensions for AsyncAPI Specification v2.0](https://github.com/SAP/asyncapi-extensions) documents from [CDS](https://pages.github.tools.sap/cap/docs/cds/)/[CSN](https://pages.github.tools.sap/cap/docs/cds/csn) models.
 
 ## Contents
 
@@ -41,8 +41,8 @@ The generation functionality can start, but it must be updated later on to work 
 This is a simplification of the [ACD Metadata for DPS Data Ingestion](https://sap.sharepoint.com/teams/CPADataManagement/Shared%20Documents/Forms/AllItems.aspx?id=%2Fteams%2FCPADataManagement%2FShared%20Documents%2FWG%20Data%20Architecture%2F20%5FDocs%5Fand%5FMaterial%2F50%5FWorkstreams%2FWS%20E2E%20Metadata%2FWG%5FDataArch%5FACD%5FE2E%5Fmetadata%5FDPS%5F1%2D0%2Epdf&parent=%2Fteams%2FCPADataManagement%2FShared%20Documents%2FWG%20Data%20Architecture%2F20%5FDocs%5Fand%5FMaterial%2F50%5FWorkstreams%2FWS%20E2E%20Metadata).
 Please see this doc for full context.
 
-When replicating data from a data provider to a data consumer, we rely on metadata to describe this data. For this metadata, TG27 (Business Events) established the AsyncAPI specification for SAP ecosystem (AsyncAPI 2.0) as the common and low entry barrier description format for the events (AsyncAPI is an open industry standard).
-It is a mandatory requirement from TG27 to describe all published events in an AsyncAPI specification for SAP ecosystem document.
+When replicating data from a data provider to a data consumer, we rely on metadata to describe this data. For this metadata, TG27 (Business Events) established the SAP Extensions for AsyncAPI Specification v2.0 (AsyncAPI 2.0) as the common and low entry barrier description format for the events (AsyncAPI is an open industry standard).
+It is a mandatory requirement from TG27 to describe all published events in an SAP Extensions for AsyncAPI Specification v2.0 document.
 In those documents, a collection of related events (JSON serialization) is described, mostly using JSON Schema (denormalized description).
 It consequently does not provide richer information like the relationship model which may be of interest for generic replicators for instance.
 
@@ -90,8 +90,8 @@ The new target (`-2 | --to`) format `asyncapi` is added to the CAP CDS compiler
 
 ### Context
 
-The aim of this effort is to provide tooling that allows the generation of AsyncAPI specification for SAP ecosystem documents from CDS/CSN models.
-A similar effort has been undertaken already with the [ODM Events Catalog](https://github.wdf.sap.corp/DMA/ODM-Events-Catalog) which created AsyncAPI specification for SAP ecosystem documents from ODM CDS models. The ODM Events Catalog is a standalone tooling.
+The aim of this effort is to provide tooling that allows the generation of SAP Extensions for AsyncAPI Specification v2.0 documents from CDS/CSN models.
+A similar effort has been undertaken already with the [ODM Events Catalog](https://github.wdf.sap.corp/DMA/ODM-Events-Catalog) which created SAP Extensions for AsyncAPI Specification v2.0 documents from ODM CDS models. The ODM Events Catalog is a standalone tooling.
 
 It had to be decided whether a new standalone tooling is created or existing tooling is reused.
 
@@ -108,7 +108,7 @@ Background of the decision is that CAP has no intrinsic requirement of documenti
 
 ### Consequence
 
-The compiler uses [AsyncAPI specification for SAP ecosystem](https://github.com/SAP/asyncapi-specification) ([AsyncAPI 2.0.0](https://v2.asyncapi.com/docs/reference/specification/v2.0.0) flavor) to describe events that follow the [CloudEvents specification for SAP ecosystem](https://github.tools.sap/CentralEngineering/cloudevents-specification) ([CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) flavor) format at runtime.
+The compiler uses [SAP Extensions for AsyncAPI Specification v2.0](https://github.com/SAP/asyncapi-extensions) ([AsyncAPI 2.0.0](https://www.asyncapi.com/docs/reference/specification/v2.0.0) flavor) to describe events that follow the [CloudEvents specification for SAP ecosystem](https://github.tools.sap/CentralEngineering/cloudevents-specification) ([CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) flavor) format at runtime.
 It does not support generating vanilla AsyncAPI documents describing arbitrarily formatted events.
 
 Still, even though the tooling targets CloudEvents specification for SAP ecosystem format, the developer has to follow TG27 requirements when modelling the events.
@@ -163,7 +163,7 @@ This is expressed by adding a `channels` entry for the event using the `subscrib
 
 ### Context
 
-The AsyncAPI specification for SAP ecosystem supports to define the direction of the described events and whether they are active or not.
+The SAP Extensions for AsyncAPI Specification v2.0 supports to define the direction of the described events and whether they are active or not.
 I.e., whether they are outbound (aka. emitted, published), or inbound (aka. consumed).
 
 CAP has the notion of services and considers events declared in an own service as outbound.
@@ -307,7 +307,7 @@ The compiler will not cross validate those and it is the developer's responsibil
 The CloudEvents specification for SAP ecosystem mandates to include the event major version as part of the event type, e.g. `sap.example.Something.Created.v1`.
 The major aim is to define the compatibility class of the event as expected by [CloudEvents](https://github.com/cloudevents/spec/blob/main/cloudevents/primer.md#versioning-of-cloudevents).
 
-In addition, the AsyncAPI specification for SAP ecosystem includes the extension `x-sap-event-version` to carry the exact semantic version of the event to announce PATCH and MINOR changes in addition. To provide this information, the event models are annotated with `@AsyncAPI.EventSchemaVersion: "<major>.<minor>.<patch>"`.
+In addition, the SAP Extensions for AsyncAPI Specification v2.0 includes the extension `x-sap-event-version` to carry the exact semantic version of the event to announce PATCH and MINOR changes in addition. To provide this information, the event models are annotated with `@AsyncAPI.EventSchemaVersion: "<major>.<minor>.<patch>"`.
 
 It must be decided whether the compiler should derive the major version of the event type from the `@AsyncAPI.EventSchemaVersion` annotation.
 

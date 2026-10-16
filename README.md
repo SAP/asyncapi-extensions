@@ -1,14 +1,14 @@
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP/asyncapi-specification)](https://api.reuse.software/info/github.com/SAP/asyncapi-specification)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/asyncapi-extensions)](https://api.reuse.software/info/github.com/SAP/asyncapi-extensions)
 
-# AsyncAPI specification for SAP ecosystem - 1.2
+# SAP Extensions for AsyncAPI Specification v2.0
 
-The _AsyncAPI specification for SAP ecosystem_ describes events that comply with the _CloudEvents specification for SAP ecosystem_.
+The _SAP Extensions for AsyncAPI Specification v2.0_ describes events that comply with the _CloudEvents specification for SAP ecosystem_.
 
-The goal of this specification is to describe a standardized event catalog format that enables a central and uniform event publication and event discovery.
+The goal of these extensions is to describe a standardized event catalog format that enables a central and uniform event publication and event discovery.
 
 It is used to publish content on [SAP Business Accelerator Hub](https://api.sap.com).
 
-This specification is based on the [AsyncAPI Specification 2.0.0](https://v2.asyncapi.com/docs/reference/specification/v2.0.0). Every document following the AsyncAPI specification for SAP ecosystem is also a valid AsyncAPI 2 document.
+These extensions are based on the [AsyncAPI Specification 2.0.0](https://v2.asyncapi.com/docs/reference/specification/v2.0.0). Every document following the SAP Extensions for AsyncAPI Specification v2.0 is also a valid AsyncAPI 2.0 document.
 
 It is RECOMMENDED to first get familiar with AsyncAPI 2.0.0.
 
@@ -32,6 +32,7 @@ It is RECOMMENDED to first get familiar with AsyncAPI 2.0.0.
     - [`x-sap-ord-id`](#x-sap-ord-id)
     - [`x-sap-stateInfo`](#x-sap-stateinfo)
     - [`x-sap-shortText`](#x-sap-shorttext)
+    - [`x-sap-ai-hint` (info level)](#x-sap-ai-hint-info-level)
   - [Channels Object](#channels-object)
   - [Channel Item Object](#channel-item-object)
     - [`subscribe`](#subscribe)
@@ -52,6 +53,7 @@ It is RECOMMENDED to first get familiar with AsyncAPI 2.0.0.
     - [`x-sap-event-characteristics`](#x-sap-event-characteristics)
     - [`x-sap-stateInfo`](#x-sap-stateinfo-1)
     - [`x-sap-event-version`](#x-sap-event-version)
+    - [`x-sap-ai-hint` (message level)](#x-sap-ai-hint-message-level)
   - [Message Trait Object](#message-trait-object)
     - [`CloudEventsContext.v1` messageTrait Template](#cloudeventscontextv1-messagetrait-template)
 - [Defined Specification Extensions](#defined-specification-extensions)
@@ -69,6 +71,7 @@ It is RECOMMENDED to first get familiar with AsyncAPI 2.0.0.
   - [`x-sap-shortText`](#x-sap-shorttext-1)
   - [`x-sap-software-min-version`](#x-sap-software-min-version)
   - [`x-sap-ord-id`](#x-sap-ord-id)
+  - [`x-sap-ai-hint` (Specification Extension)](#x-sap-ai-hint-specification-extension)
 - [Defined JSON Schema Extensions](#defined-json-schema-extensions)
   - [`x-key`](#x-key)
   - [`x-sap-odm-entity-name`](#x-sap-odm-entity-name)
@@ -79,6 +82,7 @@ It is RECOMMENDED to first get familiar with AsyncAPI 2.0.0.
   - [`x-sap-dpp-field-semantics`](#x-sap-dpp-field-semantics)
   - [`x-sap-dpp-is-potentially-personal`](#x-sap-dpp-is-potentially-personal)
   - [`x-sap-dpp-is-potentially-sensitive`](#x-sap-dpp-is-potentially-sensitive)  
+  - [`x-sap-ai-hint` (JSON Schema Extension)](#x-sap-ai-hint-json-schema-extension)
 - [Event Catalog Compatibility, Versioning and Lifecycle](#event-catalog-compatibility-versioning-and-lifecycle)
   - [Compatibility and Versioning](#compatibility-and-versioning)
     - [Patch Changes](#patch-changes)
@@ -98,7 +102,7 @@ interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
 ## Terminology
 
-The CloudEvents specification for SAP ecosystem and the AsyncAPI specification for SAP ecosystem are based on the open standards CloudEvents 1.0 and AsyncAPI 2.0.0. Both standards use a different terminology and the following mapping applies:
+The CloudEvents specification for SAP ecosystem and the SAP Extensions for AsyncAPI Specification v2.0 are based on the open standards CloudEvents 1.0 and AsyncAPI 2.0. Both standards use a different terminology and the following mapping applies:
 
 |CloudEvents specification for SAP ecosystem| AsyncAPI specification for SAP ecosystem                                                     |
 |---|----------------------------------------------------------------------------------------------|
@@ -106,7 +110,7 @@ The CloudEvents specification for SAP ecosystem and the AsyncAPI specification f
 |Event Context| [Message Header](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#messageObject)  |
 |Event Data| [Message Payload](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#messageObject) |
 
-Documents following the AsyncAPI specification for SAP ecosystem are also referred to as _event catalogs_ or _event catalog documents_ in the following.
+Documents following the SAP Extensions for AsyncAPI Specification v2.0 are also referred to as _event catalogs_ or _event catalog documents_ in the following.
 
 The primary aim of this specification is to allow producing applications to document the events they are producing. It is also possible to describe the events that are consumed by the application.
 
@@ -177,6 +181,10 @@ The [`x-sap-stateInfo`](#x-sap-stateinfo-2) extension MUST be provided on catalo
 #### `x-sap-shortText`
 
 The [`x-sap-shortText`](#x-sap-shorttext-1) extension MAY be provided.
+
+#### `x-sap-ai-hint` (info level)
+
+The [`x-sap-ai-hint`](#x-sap-ai-hint-json-schema-extension) extension MAY be provided to describe the event catalog to AI consumers.
 
 ### [Channels Object](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#channelsObject)
 
@@ -272,6 +280,10 @@ The [`x-sap-stateInfo`](#x-sap-stateinfo-2) extension MUST be provided on messag
 #### `x-sap-event-version`
 
 The [`x-sap-event-version`](#x-sap-event-version-1) extension MUST be provided if applicable.
+
+#### `x-sap-ai-hint` (message level)
+
+The [`x-sap-ai-hint`](#x-sap-ai-hint-json-schema-extension) extension MAY be provided to describe the event to AI consumers.
 
 ### [Message Trait Object](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#messageTraitObject)
 
@@ -384,7 +396,7 @@ It is RECOMMENDED to add further context attributes that are present in every de
 
 This specification defines additional extensions according to the rules given in [Specification Extensions](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#specificationExtensions) of the AsyncAPI 2.0.0 specification. Defined extensions start with a `x-sap-` prefix. The description of the extensions include their applicability.
 
-To add new SAP defined extensions to this specification, please create a new [issue](https://github.com/SAP/asyncapi-specification/issues/new).
+To add new SAP defined extensions to this specification, please create a new [issue](https://github.com/SAP/asyncapi-extensions/issues/new).
 
 ### `x-sap-catalog-spec-version`
 
@@ -655,6 +667,24 @@ Constraints:
 
 - OPTIONAL
 
+### `x-sap-ai-hint` (Specification Extension)
+
+- Type: `String`
+- Used at: [AsyncAPI Object](#asyncapi-object) (catalog/`info` level), [Message Object](#message-object)
+- Description: Provides a hint for AI consumers (e.g., LLMs) on how to use or interpret the annotated element. Intentionally kept separate from human-readable `description` fields so that end-user-facing documentation and AI-targeted guidance can evolve independently.
+
+`x-sap-ai-hint` adds AI-specific context that would clutter or be out of place in the human-facing `description`: routing guidance, preconditions, side effects, related events, or disambiguation against similar events.
+
+A proper human-readable `description` SHOULD still be provided — `x-sap-ai-hint` complements it, it does not replace it.
+
+The content should be optimized for an AI agent that needs to decide *whether* and *how* to consume or react to the event — not for a developer reading reference docs.
+
+Constraints:
+
+- OPTIONAL
+
+See also: [Defined JSON Schema Extensions — `x-sap-ai-hint`](#x-sap-ai-hint-json-schema-extension) for applying AI hints to individual payload properties.
+
 ## Defined JSON Schema Extensions
 
 This specification defines additional keywords for the [Schema Object](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#schemaObject) used to describe the [`payload`](#payload) of the [Message Object](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#messageObject).
@@ -913,6 +943,73 @@ Constraints:
 - MUST NOT be used if value is `false`
 - MUST NOT be combined with `x-sap-dpp-is-potentially-personal` for the same property
 
+### `x-sap-ai-hint` (JSON Schema Extension)
+
+- Type: `String`
+- Used at: [Schema Object](https://www.asyncapi.com/docs/reference/specification/v2.0.0#schemaObject) of the Message [`payload`](#payload) — at the top-level payload schema and at individual property sub-schemas
+- Description: Provides a hint for AI consumers (e.g., LLMs) on how to use or interpret the annotated payload schema or property. Intentionally kept separate from human-readable `description` fields so that end-user-facing documentation and AI-targeted guidance can evolve independently.
+
+Constraints:
+
+- OPTIONAL
+
+#### Best practices
+
+Unlike human-facing descriptions, `x-sap-ai-hint` can be explicit about value semantics, constraints, and context that would clutter end-user documentation. Focus on what an AI agent needs to understand the event payload — either to interpret incoming events or to reason about the data.
+
+Some useful things to include, depending on the element:
+
+- **Business context** — what business activity or domain concept the schema or property represents
+- **Format and value constraints** — coding standards (ISO, internal enums, picklists), valid value ranges, what happens on invalid values
+- **Disambiguation** — when a field name is misleading or overlaps with something similar elsewhere
+- **Semantic relationships** — how this property relates to other fields in the same event or to business objects in other APIs
+- **When NOT to use** — especially useful when multiple events or schemas cover overlapping domains; stating the boundary explicitly helps agents route correctly
+
+Structure `x-sap-ai-hint` values using **lightweight, semantically structured Markdown**:
+
+- **Use consistent labels** — e.g., **Format:**, **When NOT to use:** — so AI systems can extract meaning beyond visual formatting.
+- **Keep content atomic** — one idea per bullet or line; avoid long prose paragraphs.
+- **Reuse patterns across events** — predictability across event schemas matters more than stylistic variation.
+- **Lightweight Markdown only** — bullets, bold labels, `inline code` for fields and identifiers. Avoid tables and deep nesting.
+
+See also: [Defined Specification Extensions — `x-sap-ai-hint`](#x-sap-ai-hint-specification-extension) for applying AI hints at the catalog or message level.
+
+#### Example
+
+```json
+{
+  "components": {
+    "messages": {
+      "sap.s4.beh.SalesOrder.Created.v1": {
+        "name": "sap.s4.beh.SalesOrder.Created.v1",
+        "x-sap-ai-hint": "Signals that a new sales order has been created. Subscribe to this event to trigger downstream fulfillment or notification workflows. Does not indicate order confirmation — listen for sap.s4.beh.SalesOrder.Confirmed.v1 before assuming inventory is reserved.",
+        "payload": {
+          "$ref": "#/components/schemas/sap.s4.beh.SalesOrder.Created.v1"
+        }
+      }
+    },
+    "schemas": {
+      "sap.s4.beh.SalesOrder.Created.v1": {
+        "type": "object",
+        "x-sap-ai-hint": "Header data for a newly created sales order. The status field uses integer codes — see SalesOrderStatus for the enum mapping. Currency fields always carry ISO 4217 three-letter codes.",
+        "properties": {
+          "SalesOrder": {
+            "type": "string",
+            "description": "Sales order identifier.",
+            "x-sap-ai-hint": "Unique identifier of the sales order. Use this value to fetch line items and status via the Sales Order API."
+          },
+          "TransactionCurrency": {
+            "type": "string",
+            "description": "Currency of the order.",
+            "x-sap-ai-hint": "ISO 4217 three-letter currency code (e.g. USD, EUR). Never a symbol."
+          }
+        }
+      }
+    }
+  }
+}
+```
+
 ## Event Catalog Compatibility, Versioning and Lifecycle
 
 Event catalog documents MUST be treated with the same compatibility, versioning, and lifecycle requirements as API descriptions in general.
@@ -971,7 +1068,7 @@ The application, and therefore SAP Business Accelerator Hub, MUST always expose 
   "asyncapi": "2.0.0",
   "x-sap-catalog-spec-version": "1.2",
   "x-sap-application-namespace": "sap.sf",
-  "x-sap-shortText": "Example events to demonstrate the AsyncAPI specification for SAP ecosystem.",
+  "x-sap-shortText": "Example events to demonstrate the SAP Extensions for AsyncAPI Specification v2.0.",
   "info": {
     "title": "Sample AsyncAPI for SAP ecosystem document",
     "version": "1.2.0"
@@ -1139,4 +1236,4 @@ We as members, contributors, and leaders pledge to make participation in our com
 
 ## Licensing
 
-Copyright 2026 SAP SE or an SAP affiliate company and @sap/asyncapi-specification contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP/asyncapi-specification).
+Copyright 2026 SAP SE or an SAP affiliate company and @sap/asyncapi-extensions contributors. Please see our [LICENSE](LICENSE) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP/asyncapi-extensions).

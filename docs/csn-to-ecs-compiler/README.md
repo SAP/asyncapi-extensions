@@ -1,6 +1,6 @@
-# CDS CSN to AsyncAPI specification for SAP ecosystem Mapping - Translation Rules
+# CDS CSN to SAP Extensions for AsyncAPI Specification v2.0 Mapping - Translation Rules
 
-This document shall record and specify the rules for compiling [AsyncAPI specification for SAP ecosystem](../../README.md) documents out of [CDS](https://cap.cloud.sap/docs/cds/) [CSN](https://cap.cloud.sap/docs/cds/csn) models.
+This document shall record and specify the rules for compiling [SAP Extensions for AsyncAPI Specification v2.0](../../README.md) documents out of [CDS](https://pages.github.tools.sap/cap/docs/cds/) [CSN](https://pages.github.tools.sap/cap/docs/cds/csn) models.
 
 ## Context
 
@@ -8,9 +8,9 @@ The requirement for this has its origin in the Data Plane Services (DPS) and can
 
 ## Scope
 
-The following mappings are defining CDS CSN to AsyncAPI specification for SAP ecosystem description format translations. AsyncAPI specification for SAP ecosystem format is based on [AsyncAPI 2.0.0](https://v2.asyncapi.com/docs/reference/specification/v2.0.0) which uses [JSON Schema Draft 07](https://json-schema.org/draft-07) to describe data schemas. It is defined as part of [TG27 - Business Events](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/tree/main/tg27) and applies for describing events complying to the [CloudEvents specification for SAP ecosystem](https://github.tools.sap/CentralEngineering/cloudevents-specification), based on [CloudEvents 1.0](https://cloudevents.io/), that are [published to the Event Mesh Kernel Service](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/tree/main/tg27#assessment-tg27r3-publish-business-events-and-event-catalogs). See also [ADR01](./adrs.md#adr01-the-generation-functionality-is-implemented-as-part-of-the-cap-compiler-similar-to-the-existing-openapi-generator) and [ADR02](./adrs.md#adr02-the-compiler-works-specific-to-tg27---business-events-and-its-requirements).
+The following mappings are defining CDS CSN to SAP Extensions for AsyncAPI Specification v2.0 description format translations. SAP Extensions for AsyncAPI Specification v2.0 format is based on [AsyncAPI 2.0.0](https://www.asyncapi.com/docs/specifications/2.0.0) which uses [JSON Schema Draft 07](https://tools.ietf.org/html/draft-handrews-json-schema-01) to describe data schemas. It is defined as part of [TG27 - Business Events](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/tree/main/tg27) and applies for describing events complying to the [CloudEvents specification for SAP ecosystem](https://github.tools.sap/CentralEngineering/cloudevents-specification), based on [CloudEvents 1.0](https://cloudevents.io/), that are [published to the Event Mesh Kernel Service](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/tree/main/tg27#assessment-tg27r3-publish-business-events-and-event-catalogs). See also [ADR01](./adrs.md#adr01-the-generation-functionality-is-implemented-as-part-of-the-cap-compiler-similar-to-the-existing-openapi-generator) and [ADR02](./adrs.md#adr02-the-compiler-works-specific-to-tg27---business-events-and-its-requirements).
 
-:bulb: Note that the output format is AsyncAPI specification for SAP ecosystem that is based on AsyncAPI 2.0.0. The output format is NOT vanilla AsyncAPI.
+:bulb: Note that the output format is SAP Extensions for AsyncAPI Specification v2.0 that is based on AsyncAPI 2.0.0. The output format is NOT vanilla AsyncAPI.
 
 ## Notations and Terminology
 
@@ -88,7 +88,7 @@ In the given context, CloudEvents are described using AsyncAPI documents. Becaus
 
 ## Event Definitions
 
-Each event definition is mapped to a [_message_](https://github.com/SAP/asyncapi-specification#messages) object. There will be a dedicated message per event.
+Each event definition is mapped to a [_message_](https://github.com/SAP/asyncapi-extensions#messages) object. There will be a dedicated message per event.
 
 Message objects are placed under the `#/components/messages` object. The key and the name property of each message are equal to the event `type` literal (see [Context](#context)). Every message object contains:
 

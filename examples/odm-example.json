@@ -5,7 +5,7 @@
   "x-sap-ord-id": "sap.sf:eventResource:ExampleCatalog:v1",
   "x-sap-shortText": "Add your short description here (for Business Accelerator Hub)",
   "info": {
-    "title": "Example AsyncAPI specification for SAP ecosystem Document",
+    "title": "Example SAP Extensions for AsyncAPI Specification v2.0 Document",
     "version": "1.0.0",
     "description": "Long description of the Event Catalog",
     "license": {
