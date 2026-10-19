@@ -1,6 +1,6 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/asyncapi-extensions)](https://api.reuse.software/info/github.com/SAP/asyncapi-extensions)
 
-# SAP Extensions for AsyncAPI Specification v2.0
+# SAP Extensions for AsyncAPI Specification
 
 The _SAP Extensions for AsyncAPI Specification v2.0_ describes events that comply with the _CloudEvents specification for SAP ecosystem_.
 
