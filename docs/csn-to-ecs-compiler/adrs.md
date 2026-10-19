@@ -108,7 +108,7 @@ Background of the decision is that CAP has no intrinsic requirement of documenti
 
 ### Consequence
 
-The compiler uses [SAP Extensions for AsyncAPI Specification v2.0](https://github.com/SAP/asyncapi-extensions) ([AsyncAPI 2.0.0](https://www.asyncapi.com/docs/reference/specification/v2.0.0) flavor) to describe events that follow the [CloudEvents specification for SAP ecosystem](https://github.tools.sap/CentralEngineering/cloudevents-specification) ([CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) flavor) format at runtime.
+The compiler uses [SAP Extensions for AsyncAPI Specification v2.0](https://github.com/SAP/asyncapi-extensions) ([AsyncAPI 2.0.0](https://v2.asyncapi.com/docs/reference/specification/v2.0.0) flavor) to describe events that follow the [CloudEvents specification for SAP ecosystem](https://github.tools.sap/CentralEngineering/cloudevents-specification) ([CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/spec.md) flavor) format at runtime.
 It does not support generating vanilla AsyncAPI documents describing arbitrarily formatted events.
 
 Still, even though the tooling targets CloudEvents specification for SAP ecosystem format, the developer has to follow TG27 requirements when modelling the events.
