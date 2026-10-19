@@ -1,4 +1,4 @@
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP/asyncapi-specification)](https://api.reuse.software/info/github.com/SAP/asyncapi-specification)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/asyncapi-extensions)](https://api.reuse.software/info/github.com/SAP/asyncapi-extensions)
 
 # AsyncAPI specification for SAP ecosystem - 1.2
 
