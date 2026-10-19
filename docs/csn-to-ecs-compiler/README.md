@@ -1,16 +1,16 @@
-# CDS CSN to SAP Extensions for AsyncAPI Specification v2.0 Mapping - Translation Rules
+# CDS CSN to AsyncAPI Mapping - Translation Rules
 
-This document shall record and specify the rules for compiling [SAP Extensions for AsyncAPI Specification v2.0](../../README.md) documents out of [CDS](https://pages.github.tools.sap/cap/docs/cds/) [CSN](https://pages.github.tools.sap/cap/docs/cds/csn) models.
+This document shall record and specify the rules for compiling [AsyncAPI Extensions for SAP Ecosystem](../../README.md) documents out of [CDS](https://cap.cloud.sap/docs/cds/) [CSN](https://cap.cloud.sap/docs/cds/csn) models.
 
 ## Context
 
-The requirement for this has its origin in the Data Plane Services (DPS) and can be found as [CPA JIRA 851](https://jira.tools.sap/browse/CPA-851). Important decisions and concepts are documented in [ADRs](./adrs.md). See also [CLI Options/Flags](./cli-options.md) and [Metadata and Presets](./metadata-and-presets.md). In the meantime, priorities have changed and DPS does not exist as such any longer. However, the requirement is still valid and still applies for instance to Data Warehouse Cloud (DWC).
+The requirement for this has its origin in the Data Plane Services (DPS). Important decisions and concepts are documented in [ADRs](./adrs.md). See also [CLI Options/Flags](./cli-options.md) and [Metadata and Presets](./metadata-and-presets.md). In the meantime, priorities have changed and DPS does not exist as such any longer. However, the requirement is still valid and still applies for instance to Data Warehouse Cloud (DWC).
 
 ## Scope
 
-The following mappings are defining CDS CSN to SAP Extensions for AsyncAPI Specification v2.0 description format translations. SAP Extensions for AsyncAPI Specification v2.0 format is based on [AsyncAPI 2.0.0](https://www.asyncapi.com/docs/specifications/2.0.0) which uses [JSON Schema Draft 07](https://tools.ietf.org/html/draft-handrews-json-schema-01) to describe data schemas. It is defined as part of [TG27 - Business Events](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/tree/main/tg27) and applies for describing events complying to the [CloudEvents specification for SAP ecosystem](https://github.tools.sap/CentralEngineering/cloudevents-specification), based on [CloudEvents 1.0](https://cloudevents.io/), that are [published to the Event Mesh Kernel Service](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/tree/main/tg27#assessment-tg27r3-publish-business-events-and-event-catalogs). See also [ADR01](./adrs.md#adr01-the-generation-functionality-is-implemented-as-part-of-the-cap-compiler-similar-to-the-existing-openapi-generator) and [ADR02](./adrs.md#adr02-the-compiler-works-specific-to-tg27---business-events-and-its-requirements).
+The following mappings are defining CDS CSN to AsyncAPI Extensions for SAP Ecosystem description format translations. AsyncAPI Extensions for SAP Ecosystem format is based on [AsyncAPI 2.0.0](https://www.asyncapi.com/docs/specifications/2.0.0) which uses [JSON Schema Draft 07](https://tools.ietf.org/html/draft-handrews-json-schema-01) to describe data schemas. It is defined as part of `TG27 - Business Events` and applies for describing events complying to the CloudEvents specification for SAP ecosystem, based on [CloudEvents 1.0](https://cloudevents.io/), that are published to the Event Mesh Kernel Service. See also [ADR01](./adrs.md#adr01-the-generation-functionality-is-implemented-as-part-of-the-cap-compiler-similar-to-the-existing-openapi-generator) and [ADR02](./adrs.md#adr02-the-compiler-works-specific-to-tg27---business-events-and-its-requirements).
 
-:bulb: Note that the output format is SAP Extensions for AsyncAPI Specification v2.0 that is based on AsyncAPI 2.0.0. The output format is NOT vanilla AsyncAPI.
+:bulb: Note that the output format is AsyncAPI Extensions for SAP Ecosystem that is based on AsyncAPI 2.0.0. The output format is NOT vanilla AsyncAPI.
 
 ## Notations and Terminology
 
@@ -18,9 +18,9 @@ In the given context, CloudEvents are described using AsyncAPI documents. Becaus
 
 |CloudEvents term| AsyncAPI term                                                                             |
 |---|-------------------------------------------------------------------------------------------|
-|[Event](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/blob/master/tg27/docs/terminology.md#event)| [Message](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#definitionsMessage) |
-|[Event Context](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/blob/master/tg27/docs/terminology.md#context)| Message Header                                                                            |
-|[Event Data](https://github.tools.sap/CentralEngineering/TechnologyGuidelines/blob/master/tg27/docs/terminology.md#data)| Message Payload                                                                           |
+|Event| [Message](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#definitionsMessage) |
+|Event Context| Message Header                                                                            |
+|Event Data| Message Payload                                                                           |
 
 ## Table of Contents
 

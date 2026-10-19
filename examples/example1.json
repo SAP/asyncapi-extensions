@@ -3,9 +3,9 @@
   "x-sap-catalog-spec-version": "1.2",
   "x-sap-application-namespace": "sap.s4",
   "x-sap-ord-id": "sap.s4:eventResource:ExampleCatalog:v1",
-  "x-sap-shortText": "Example event catalog document to demonstrate the SAP Extensions for AsyncAPI Specification v2.0.",
+  "x-sap-shortText": "Example event catalog document to demonstrate the AsyncAPI for SAP Ecosystem.",
   "info": {
-    "title": "Example SAP Extensions for AsyncAPI Specification v2.0 document",
+    "title": "Example AsyncAPI for SAP Ecosystem document",
     "version": "1.2.0",
     "description": "This is an example event catalog document that covers a Candidate Event from an event provider"
   },

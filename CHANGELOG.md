@@ -1,6 +1,6 @@
 # CHANGELOG
 
-All notable changes to the SAP Extensions for AsyncAPI Specification v2.0 are documented in this file.
+All notable changes to the AsyncAPI Extensions for SAP Ecosystem are documented in this file.
 
 ## [unreleased]
 
@@ -10,7 +10,7 @@ All notable changes to the SAP Extensions for AsyncAPI Specification v2.0 are do
 
 ### Added
 
-* SAP Extensions for AsyncAPI Specification v2.0 has been made public as Open Source under Apache 2 license
+* AsyncAPI Extensions for SAP Ecosystem has been made public as Open Source under Apache 2 license
 * Added the [`x-sap-dpp-entity-semantics`](README.md#x-sap-dpp-entity-semantics) extension
 * Added the [`x-sap-dpp-data-subject-role`](README.md#x-sap-dpp-data-subject-role) extension
 * Added the [`x-sap-dpp-data-subject-role-description`](README.md#x-sap-dpp-data-subject-role-description) extension

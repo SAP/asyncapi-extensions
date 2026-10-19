@@ -1,14 +1,14 @@
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP/asyncapi-extensions)](https://api.reuse.software/info/github.com/SAP/asyncapi-extensions)
 
-# SAP Extensions for AsyncAPI Specification
+# AsyncAPI Extensions for SAP Ecosystem
 
-The _SAP Extensions for AsyncAPI Specification v2.0_ describes events that comply with the _CloudEvents specification for SAP ecosystem_.
+The document describes events that comply with the _CloudEvents specification for SAP ecosystem_ and additional SAP-specific extensions.
 
 The goal of these extensions is to describe a standardized event catalog format that enables a central and uniform event publication and event discovery.
 
 It is used to publish content on [SAP Business Accelerator Hub](https://api.sap.com).
 
-These extensions are based on the [AsyncAPI Specification 2.0.0](https://v2.asyncapi.com/docs/reference/specification/v2.0.0). Every document following the SAP Extensions for AsyncAPI Specification v2.0 is also a valid AsyncAPI 2.0 document.
+These extensions are based on the [AsyncAPI Specification 2.0.0](https://v2.asyncapi.com/docs/reference/specification/v2.0.0). Every document following the schema defined in this document is also a valid AsyncAPI 2.0 document.
 
 It is RECOMMENDED to first get familiar with AsyncAPI 2.0.0.
 
@@ -102,7 +102,7 @@ interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
 ## Terminology
 
-The CloudEvents specification for SAP ecosystem and the SAP Extensions for AsyncAPI Specification v2.0 are based on the open standards CloudEvents 1.0 and AsyncAPI 2.0. Both standards use a different terminology and the following mapping applies:
+The CloudEvents specification for SAP ecosystem and the this document are based on the open standards CloudEvents 1.0 and AsyncAPI 2.0. Both standards use a different terminology and the following mapping applies:
 
 |CloudEvents specification for SAP ecosystem| AsyncAPI specification for SAP ecosystem                                                     |
 |---|----------------------------------------------------------------------------------------------|
@@ -110,7 +110,7 @@ The CloudEvents specification for SAP ecosystem and the SAP Extensions for Async
 |Event Context| [Message Header](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#messageObject)  |
 |Event Data| [Message Payload](https://v2.asyncapi.com/docs/reference/specification/v2.0.0#messageObject) |
 
-Documents following the SAP Extensions for AsyncAPI Specification v2.0 are also referred to as _event catalogs_ or _event catalog documents_ in the following.
+Documents following the AsyncAPI Extensions for SAP Ecosystem are also referred to as _event catalogs_ or _event catalog documents_ in the following.
 
 The primary aim of this specification is to allow producing applications to document the events they are producing. It is also possible to describe the events that are consumed by the application.
 
@@ -1068,7 +1068,7 @@ The application, and therefore SAP Business Accelerator Hub, MUST always expose 
   "asyncapi": "2.0.0",
   "x-sap-catalog-spec-version": "1.2",
   "x-sap-application-namespace": "sap.sf",
-  "x-sap-shortText": "Example events to demonstrate the SAP Extensions for AsyncAPI Specification v2.0.",
+  "x-sap-shortText": "Example events to demonstrate the AsyncAPI document for SAP Ecosystem.",
   "info": {
     "title": "Sample AsyncAPI for SAP ecosystem document",
     "version": "1.2.0"

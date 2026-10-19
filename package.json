@@ -1,7 +1,7 @@
 {
   "name": "@sap/asyncapi-extensions",
   "version": "1.2.16",
-  "description": "The SAP Extensions for AsyncAPI Specification v2.0 extends the AsyncAPI Specification 2.0 format to describe events according to the CloudEvents specification for SAP ecosystem.",
+  "description": "This library extends the AsyncAPI Specification 2.0 format to describe events according to the CloudEvents specification for SAP ecosystem and adds SAP-specific extensions.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SAP/asyncapi-extensions.git"

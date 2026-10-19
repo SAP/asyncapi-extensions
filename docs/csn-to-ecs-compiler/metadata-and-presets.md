@@ -1,4 +1,4 @@
-# CDS CSN to SAP Extensions for AsyncAPI Specification v2.0 Mapping - Presets and Annotations
+# CDS CSN to AsyncAPI Mapping - Presets and Annotations
 
 Concept document implementing the "preset" approach for adding necessary metadata to the CSN->Event Catalog Mapping. See [discussion document](https://sap.sharepoint.com/:w:/t/CPAIntegration/EV-nxtusoERIi2FmMGYyyQcBFx1EC6rBWjS-TGRjw-MSqg?e=u9Y8OR) for the full context.
 
@@ -14,9 +14,8 @@ Each section starts with a "rationale" explaining why the approach was chosen.
 
 ## Validation
 
-Many of the attributes below are mandatory for a valid SAP Extensions for AsyncAPI Specification v2.0 document (some conditionally, e.g., based on the value of another attribute). In case there is no reasonable default for an attribute, it is omitted instead of providing a useless default. Reason being that an eventual validation should rather fail than succeed based on a meaningless default value that potentially causes problems after a document has been published, e.g., on SAP Business Accelerator Hub.
+Many of the attributes below are mandatory for a valid AsyncAPI document for SAP Ecosystem document (some conditionally, e.g., based on the value of another attribute). In case there is no reasonable default for an attribute, it is omitted instead of providing a useless default. Reason being that an eventual validation should rather fail than succeed based on a meaningless default value that potentially causes problems after a document has been published, e.g., on SAP Business Accelerator Hub.
 
-SAP Extensions for AsyncAPI Specification v2.0 support is currently in the process of being built into the [SAP API Metadata Validator](https://github.tools.sap/CentralEngineering/api-metadata-validator). Tool will be used for instance by SAP Business Accelerator Hub to validate compliance when publishing.
 
 ## Document Level
 

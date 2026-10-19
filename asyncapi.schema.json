@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/SAP/asyncapi-extensions/refs/heads/main/asyncapi.schema.json#",
-  "title": "SAP Extensions for AsyncAPI Specification v2.0 schema - 1.2",
+  "title": "AsyncAPI for SAP Ecosystem schema",
   "description": "Based on AsyncAPI 2.0.0 schema.",
   "type": "object",
   "required": [
@@ -39,7 +39,7 @@
         "1.1",
         "1.2"
       ],
-      "description": "The SAP Extensions for AsyncAPI Specification v2.0 version of this document."
+      "description": "The AsyncAPI for SAP Ecosystem schema version of this document."
     },
     "x-sap-application-namespace": {
       "type": "string",
