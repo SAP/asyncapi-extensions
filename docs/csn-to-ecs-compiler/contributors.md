@@ -1,4 +1,4 @@
-# CDS CSN to AsyncAPI specification for SAP ecosystem Mapping - Contributors
+# CDS CSN to AsyncAPI Mapping - Contributors
 
 Thanks go to the colleagues for their implementations or valuable experience contributed to this effort (alphabetical order):
 

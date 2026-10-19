@@ -1,9 +1,9 @@
 asyncapi: 2.0.0
 x-sap-catalog-spec-version: "1.2"
 # no x-sap-application-namespace needed as only consuming events
-x-sap-shortText: Example events to demonstrate the AsyncAPI specification for SAP ecosystem.
+x-sap-shortText: Example events to demonstrate the AsyncAPI for SAP Ecosystem.
 info:
-  title: Example AsyncAPI specification for SAP ecosystem document
+  title: Example AsyncAPI document
   version: 1.0.0
   description: This is an example event catalog document from an event provider.
 channels:

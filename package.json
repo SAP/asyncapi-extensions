@@ -1,14 +1,14 @@
 {
-  "name": "@sap/asyncapi-specification",
+  "name": "@sap/asyncapi-extensions",
   "version": "1.2.16",
-  "description": "The AsyncAPI specification for SAP ecosystem extends the AsyncAPI Specification 2.0.0 format to describe events according to the CloudEvents specification for SAP ecosystem.",
+  "description": "This library extends the AsyncAPI Specification 2.0 format to describe events according to the CloudEvents specification for SAP ecosystem and adds SAP-specific extensions.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SAP/asyncapi-specification.git"
+    "url": "git+https://github.com/SAP/asyncapi-extensions.git"
   },
   "main": "./asyncapi.schema.json",
   "scripts": {
-    "check-links": "markdown-link-check ./README.md ./docs/csn-to-ecs-compiler/*.md"
+    "check-links": "markdown-link-check --config .markdown-link-check.json README.md"
   },
   "keywords": [
     "events",
@@ -21,8 +21,8 @@
   "author": "SAP SE",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=22",
-    "npm": ">=10"
+    "node": ">=24.0.0",
+    "npm": ">=11.0.0"
   },
   "files": [
     "README.md",

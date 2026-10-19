@@ -1,4 +1,4 @@
-# CDS CSN to AsyncAPI specification for SAP ecosystem Mapping - Presets and Annotations
+# CDS CSN to AsyncAPI Mapping - Presets and Annotations
 
 Concept document implementing the "preset" approach for adding necessary metadata to the CSN->Event Catalog Mapping. See [discussion document](https://sap.sharepoint.com/:w:/t/CPAIntegration/EV-nxtusoERIi2FmMGYyyQcBFx1EC6rBWjS-TGRjw-MSqg?e=u9Y8OR) for the full context.
 
@@ -14,13 +14,12 @@ Each section starts with a "rationale" explaining why the approach was chosen.
 
 ## Validation
 
-Many of the attributes below are mandatory for a valid AsyncAPI specification for SAP ecosystem document (some conditionally, e.g., based on the value of another attribute). In case there is no reasonable default for an attribute, it is omitted instead of providing a useless default. Reason being that an eventual validation should rather fail than succeed based on a meaningless default value that potentially causes problems after a document has been published, e.g., on SAP Business Accelerator Hub.
+Many of the attributes below are mandatory for a valid AsyncAPI document for SAP Ecosystem document (some conditionally, e.g., based on the value of another attribute). In case there is no reasonable default for an attribute, it is omitted instead of providing a useless default. Reason being that an eventual validation should rather fail than succeed based on a meaningless default value that potentially causes problems after a document has been published, e.g., on SAP Business Accelerator Hub.
 
-AsyncAPI specification for SAP ecosystem support is currently in the process of being built into the [SAP API Metadata Validator](https://github.com/SAP/api-metadata-validator). Tool will be used for instance by SAP Business Accelerator Hub to validate compliance when publishing.
 
 ## Document Level
 
-### [`info`](https://github.com/SAP/asyncapi-specification#info) object
+### [`info`](https://github.com/SAP/asyncapi-extensions#info) object
 
 #### `info.title`
 
@@ -74,14 +73,14 @@ Example:
 service CatalogService
 ```
 
-### [`x-sap-catalog-spec-version`](https://github.com/SAP/asyncapi-specification#x-sap-catalog-spec-version)
+### [`x-sap-catalog-spec-version`](https://github.com/SAP/asyncapi-extensions#x-sap-catalog-spec-version)
 
 Rationale: this must be determined by the tooling, depending on what version it supports (may evolve over time).
 
 - approach: tooling const
 - const: `1.2`
 
-### [`x-sap-application-namespace`](https://github.com/SAP/asyncapi-specification#x-sap-application-namespace)
+### [`x-sap-application-namespace`](https://github.com/SAP/asyncapi-extensions#x-sap-application-namespace)
 
 **TODO :construction: This will be deferred until the concrete integration with EMKS service plans is tackled. In the meantime, a CLI param can be used.**
 
@@ -92,7 +91,7 @@ We could leverage the same to parse the application namespace. However, we are n
 
 Looking ahead and considering the new internal service plans of Event Mesh Kernel Service, the binding will also include a `ceSource` attribute.
 
-### [`x-sap-stateInfo`](https://github.com/SAP/asyncapi-specification#x-sap-stateinfo)
+### [`x-sap-stateInfo`](https://github.com/SAP/asyncapi-extensions#x-sap-stateinfo)
 
 Rationale: this is specific to each `service`. A preset applying to all `services` doesn't make sense.
 
@@ -121,7 +120,7 @@ Example:
 service CatalogService @(path:'/browse') {
 ```
 
-### [`x-sap-shortText`](https://github.com/SAP/asyncapi-specification#x-sap-shorttext-1)
+### [`x-sap-shortText`](https://github.com/SAP/asyncapi-extensions#x-sap-shorttext-1)
 
 Rationale: this is specific to each `service` / event catalog. The annotation is used mainly by SAP Business Accelerator Hub for displaying in the UI. It is optional.
 
@@ -140,7 +139,7 @@ service CatalogService
 
 ## Event Level
 
-### [`x-sap-event-spec-version`](https://github.com/SAP/asyncapi-specification#x-sap-event-spec-version)
+### [`x-sap-event-spec-version`](https://github.com/SAP/asyncapi-extensions#x-sap-event-spec-version)
 
 Rationale: it is likely that all events follow the same specversion, however, the tooling cannot know what version is state of the art at the time using it. Therefore, the default is to omit it.
 
@@ -182,7 +181,7 @@ event Book.Updated.v1 : projection on Book;
 
 :bulb: version 2.0 has been released in September 2022.
 
-### [`x-sap-event-source`](https://github.com/SAP/asyncapi-specification#x-sap-event-source)
+### [`x-sap-event-source`](https://github.com/SAP/asyncapi-extensions#x-sap-event-source)
 
 Rationale: we can provide the very generic preset which may be overwritten with a more precise template. Individual values for different events may happen (e.g., sub context namespaces).
 
@@ -224,7 +223,7 @@ Example:
 event Book.Updated.v1 : projection on Book;
 ```
 
-### [`x-sap-event-source-parameters`](https://github.com/SAP/asyncapi-specification#x-sap-event-source-parameters)
+### [`x-sap-event-source-parameters`](https://github.com/SAP/asyncapi-extensions#x-sap-event-source-parameters)
 
 Rationale: we can provide the very generic preset which may be overwritten with a more precise template. Individual values for different events may happen (sub context namespaces).
 
@@ -323,7 +322,7 @@ Example:
 event Book.Updated.v1 : projection on Book;
 ```
 
-### [`x-sap-event-characteristics`](https://github.com/SAP/asyncapi-specification#x-sap-event-characteristics)
+### [`x-sap-event-characteristics`](https://github.com/SAP/asyncapi-extensions#x-sap-event-characteristics)
 
 Rationale: it is likely that many events provide the same characteristics, but exceptions may exist. We can however not assume any default.
 
@@ -375,14 +374,14 @@ Examples:
 event BookDeleted : projection on Book { id };
 ```
 
-### [`x-sap-stateInfo`](https://github.com/SAP/asyncapi-specification#x-sap-stateinfo-1)
+### [`x-sap-stateInfo`](https://github.com/SAP/asyncapi-extensions#x-sap-stateinfo-1)
 
 Annotation: @AsyncAPI.EventStateInfo
 Rationale: this is specific to each `event`. A preset applying to all `events` doesn't make sense.
 
 This is the same as [`x-sap-stateInfo`](#x-sap-stateinfo) but the target of the annotation is an `event`.
 
-### [`x-sap-event-version`](https://github.com/SAP/asyncapi-specification#x-sap-event-version)
+### [`x-sap-event-version`](https://github.com/SAP/asyncapi-extensions#x-sap-event-version)
 
 Annotation: @AsyncAPI.EventSchemaVersion
 Rationale: this is specific to each `event`. A possible scenario is a first release where all events are in `1.0.0`. But not allowing that as preset as this would be error prone.
