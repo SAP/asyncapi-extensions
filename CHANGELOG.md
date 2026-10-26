@@ -4,7 +4,9 @@ All notable changes to the AsyncAPI Extensions for SAP Ecosystem are documented 
 
 ## [unreleased]
 
-- Support Node.js 22 and npm 10 and align Draft-07 meta-schema identifiers with AJV
+## [1.2.18]
+
+* Support Node.js 22 and npm 10 and align Draft-07 meta-schema identifiers with AJV
 
 ## [1.2.17]
 
