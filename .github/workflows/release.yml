@@ -1,8 +1,22 @@
-name: Publish Package to NPMJS.org
+name: Release
+
 on:
   workflow_dispatch:
+    inputs:
+      npm:
+        description: "NPM Package"
+        required: false
+        type: boolean
+        default: true
+      githubRelease:
+        description: "GitHub Release"
+        required: false
+        type: boolean
+        default: true
+
 jobs:
-  publish-to-npmjs:
+  npm:
+    if: inputs.npm
     permissions:
       contents: read
       id-token: write
@@ -13,7 +27,7 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: "24"
+          node-version: "22"
           # registry-url is required for releasing packages
           registry-url: "https://registry.npmjs.org"
 
@@ -27,3 +41,20 @@ jobs:
         # --access public is only hard required for the initial release, but it doesn't hurt having it setup
         # npm version >=11.5.1 required for trusted publisher
         run: npm publish --provenance --access public
+
+  githubRelease:
+    needs: [npm]
+    if: |
+      always() &&
+      !contains(needs.*.result, 'cancelled') &&
+      !contains(needs.*.result, 'failure') &&
+      inputs.githubRelease
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Create GitHub Release
+        uses: open-resource-discovery/github-release@main
