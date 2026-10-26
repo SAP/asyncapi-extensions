@@ -1,4 +1,4 @@
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP/asyncapi-extensions)](https://api.reuse.software/info/github.com/SAP/asyncapi-extensions)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/asyncapi-extensions)](https://api.reuse.software/info/github.com/SAP/asyncapi-extensions) [![CI](https://github.com/SAP/asyncapi-extensions/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/SAP/asyncapi-extensions/actions/workflows/main.yml) [![npm version](https://img.shields.io/npm/v/@sap/asyncapi-extensions)](https://npmjs.com/package/@sap/asyncapi-extensions)
 
 # AsyncAPI Extensions for SAP Ecosystem
 
