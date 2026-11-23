@@ -21,7 +21,7 @@
   "author": "SAP SE",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=26.13.1",
+    "node": ">=26",
     "npm": ">=10.0.0"
   },
   "files": [
