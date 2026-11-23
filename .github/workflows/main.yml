@@ -28,5 +28,3 @@ jobs:
 
       - name: Check Markdown links
         run: npm run check-links
-    permissions:
-      contents: read
