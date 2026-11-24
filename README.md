@@ -1226,6 +1226,11 @@ The application, and therefore SAP Business Accelerator Hub, MUST always expose 
   - A machine-readable JSON schema of the specification is available at [asyncapi.schema.json](./asyncapi.schema.json).
   - It is not possible to express all normative statements of this spec in the schema. The markdown file here remains the source of truth.
 
+## Package Compatibility
+
+The published npm package contains the JSON schema and has no production dependencies.
+It supports Node.js 22 and later with npm 10 and later; CI and publishing use Node.js 26.
+
 ## Changelog
 
 See [CHANGELOG.md](./CHANGELOG.md)

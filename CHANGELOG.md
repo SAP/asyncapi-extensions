@@ -4,6 +4,10 @@ All notable changes to the AsyncAPI Extensions for SAP Ecosystem are documented 
 
 ## [unreleased]
 
+### Changed
+
+- CI and publishing use Node.js 26 while the published schema package retains support for Node.js 22 and later with npm 10 and later.
+
 ## [1.2.18]
 
 * Support Node.js 22 and npm 10 and align Draft-07 meta-schema identifiers with AJV
