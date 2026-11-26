@@ -1,0 +1,8 @@
+# Review owners for CI and build configuration.
+/.github/ @Fannon @pavelkornev
+/renovate.json @Fannon @pavelkornev 
+/package.json @Fannon @pavelkornev
+/package-lock.json @Fannon @pavelkornev
+
+# Review the installer policy with the corresponding package owners.
+/.npmrc @Fannon @pavelkornev
